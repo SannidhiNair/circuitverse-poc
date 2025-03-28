@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodespacesTryRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CircuitVerse POC</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" style="width: 100%;">
+      <div class="container">
+        <a class="navbar-brand" href="/">CircuitVerse POC</a>
+        <!-- Additional nav items can go here -->
+      </div>
+    </nav>
+
+    <!-- This container centers the page content -->
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+      <%= yield %>
+    </div>
   </body>
 </html>

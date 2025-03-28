@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h1 class="mb-3">Assignment Details</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <p><strong>Name:</strong> <%= @assignment.name %></p>
+      <p><strong>Group ID:</strong> <%= @assignment.group_id %></p>
+      <p><strong>Base Circuit JSON:</strong> <%= @assignment.base_circuit_json %></p>
+      <p><strong>Test Spec:</strong> <%= @assignment.test_spec %></p>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to "Edit this assignment", edit_assignment_path(@assignment), class: "btn btn-primary" %>
+    <%= link_to "Back to assignments", assignments_path, class: "btn btn-secondary" %>
+  </div>
+
+  <div class="mb-3">
+    <%= button_to "Run Tests", run_tests_assignment_path(@assignment), method: :post, class: "btn btn-success" %>
+  </div>
+
+  <% if flash[:notice].present? %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
+
+  <div>
+    <%= button_to "Destroy this assignment", @assignment, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+</div>
